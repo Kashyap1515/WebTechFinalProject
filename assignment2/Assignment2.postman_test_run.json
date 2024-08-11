@@ -1,0 +1,757 @@
+{
+	"id": "7dff53a3-769d-495e-b7e3-37c4820f990b",
+	"name": "Assignment2",
+	"timestamp": "2024-07-08T01:24:53.360Z",
+	"collection_id": "31541777-7a1972c0-779a-44af-a0be-4977acb367ad",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 44,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-07-08T01:24:51.616Z",
+	"totalFail": 17,
+	"results": [
+		{
+			"id": "1afa3370-0fb9-474f-9d00-dd32ebd4cbdd",
+			"name": "Register",
+			"url": "http://localhost:8080/api/v1/user",
+			"time": 168,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 400": false,
+				"Response has the required field 'message'": false,
+				"Message is a non-empty string": false,
+				"Content-Type is application/json": true,
+				"Verify response message is descriptive and informative": false
+			},
+			"testPassFailCounts": {
+				"Response status code is 400": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response has the required field 'message'": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Message is a non-empty string": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify response message is descriptive and informative": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				168
+			],
+			"allTests": [
+				{
+					"Response status code is 400": false,
+					"Response has the required field 'message'": false,
+					"Message is a non-empty string": false,
+					"Content-Type is application/json": true,
+					"Verify response message is descriptive and informative": false
+				}
+			]
+		},
+		{
+			"id": "ec543f97-bd76-4f46-a35d-65a712817b42",
+			"name": "Users",
+			"url": "http://localhost:8080/api/v1/user",
+			"time": 79,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required fields": true,
+				"Shipping address should be either null or an object": false,
+				"Content-Type header is application/json": true,
+				"Verify that the __v field is a non-negative integer": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Shipping address should be either null or an object": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that the __v field is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				79
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required fields": true,
+					"Shipping address should be either null or an object": false,
+					"Content-Type header is application/json": true,
+					"Verify that the __v field is a non-negative integer": true
+				}
+			]
+		},
+		{
+			"id": "a38e4233-9e9d-4ef6-b9f7-558c41834138",
+			"name": "Single User",
+			"url": "http://localhost:8080/api/v1/user/667a6393785876bfb84c517b",
+			"time": 78,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 500": false,
+				"Content-Type header is application/json": true,
+				"Message object structure is as expected": false,
+				"StringValue and value must be non-empty strings": false,
+				"Verify the presence and format of the 'reason' object": false
+			},
+			"testPassFailCounts": {
+				"Response status code is 500": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message object structure is as expected": {
+					"pass": 0,
+					"fail": 1
+				},
+				"StringValue and value must be non-empty strings": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Verify the presence and format of the 'reason' object": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				78
+			],
+			"allTests": [
+				{
+					"Response status code is 500": false,
+					"Content-Type header is application/json": true,
+					"Message object structure is as expected": false,
+					"StringValue and value must be non-empty strings": false,
+					"Verify the presence and format of the 'reason' object": false
+				}
+			]
+		},
+		{
+			"id": "8ce6833f-af7e-4ea9-83cd-9fcde7fe5452",
+			"name": "Delete User",
+			"url": "http://localhost:8080/api/v1/user/668b3fa03737234a24e32d17",
+			"time": 91,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				91
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "645ae58d-4b38-4802-91e8-b56e68481d1d",
+			"name": "Add Product",
+			"url": "http://localhost:8080/api/v1/product",
+			"time": 86,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required fields": true,
+				"Pricing and shippingCost are non-negative numbers": true,
+				"Content-Type is application/json": true,
+				"No unexpected fields in the response": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Pricing and shippingCost are non-negative numbers": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"No unexpected fields in the response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				86
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required fields": true,
+					"Pricing and shippingCost are non-negative numbers": true,
+					"Content-Type is application/json": true,
+					"No unexpected fields in the response": true
+				}
+			]
+		},
+		{
+			"id": "f343a8a8-5a50-4a7e-a094-2fcc147a2afa",
+			"name": "Get Products",
+			"url": "http://localhost:8080/api/v1/product",
+			"time": 81,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required fields": true,
+				"Id should be a non-empty string": true,
+				"Pricing and shippingCost are non-negative integers": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Id should be a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Pricing and shippingCost are non-negative integers": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				81
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required fields": true,
+					"Id should be a non-empty string": true,
+					"Pricing and shippingCost are non-negative integers": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "9baa07bd-2e00-414c-a044-b88312711a95",
+			"name": "Delete Product",
+			"url": "http://localhost:8080/api/v1/product/668b2cae75883539fd4df437",
+			"time": 91,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 404": false,
+				"Response has the required field 'message'": false,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 404": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response has the required field 'message'": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				91
+			],
+			"allTests": [
+				{
+					"Response status code is 404": false,
+					"Response has the required field 'message'": false,
+					"Response time is less than 200ms": true
+				}
+			]
+		},
+		{
+			"id": "4fe7e7c9-40cf-4625-9984-6e0be0c59dfa",
+			"name": "Add Cart",
+			"url": "http://localhost:8080/api/v1/cart",
+			"time": 87,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Content-Type header is application/json": true,
+				"Response has the required fields": true,
+				"Products array must contain at least one element": true,
+				"Quantity in the products array is a non-negative integer": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Products array must contain at least one element": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Quantity in the products array is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				87
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Content-Type header is application/json": true,
+					"Response has the required fields": true,
+					"Products array must contain at least one element": true,
+					"Quantity in the products array is a non-negative integer": true
+				}
+			]
+		},
+		{
+			"id": "a9f6256a-c627-4a95-87ef-13786507aad7",
+			"name": "Get Cart",
+			"url": "http://localhost:8080/api/v1/cart",
+			"time": 78,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required fields - _id, user, products, __v": true,
+				"Each product in the 'products' array contains product and quantity fields": false,
+				"Verify that the '__v' field is a non-negative integer": true,
+				"Content-Type is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields - _id, user, products, __v": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Each product in the 'products' array contains product and quantity fields": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Verify that the '__v' field is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				78
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required fields - _id, user, products, __v": true,
+					"Each product in the 'products' array contains product and quantity fields": false,
+					"Verify that the '__v' field is a non-negative integer": true,
+					"Content-Type is application/json": true
+				}
+			]
+		},
+		{
+			"id": "d24ec2b1-bddc-4930-bd31-37ff4b926cba",
+			"name": "Delete Cart",
+			"url": "http://localhost:8080/api/v1/cart/668b2d4375883539fd4df441",
+			"time": 95,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				95
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "634bec1d-deb7-4409-b14f-242dc6b66943",
+			"name": "Add Comment",
+			"url": "http://localhost:8080/api/v1/comment",
+			"time": 84,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required fields": true,
+				"Product and user must be non-empty strings": true,
+				"Rating is a non-negative integer": true,
+				"Images should be an array and not empty": false
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Product and user must be non-empty strings": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Rating is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Images should be an array and not empty": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				84
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required fields": true,
+					"Product and user must be non-empty strings": true,
+					"Rating is a non-negative integer": true,
+					"Images should be an array and not empty": false
+				}
+			]
+		},
+		{
+			"id": "d64924c8-ca17-4cfa-8071-72fdaa7c2893",
+			"name": "Get Comment",
+			"url": "http://localhost:8080/api/v1/comment",
+			"time": 79,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response content type is application/json": true,
+				"Each comment has the required fields": true,
+				"Rating is within the valid range": true,
+				"Images array should not be empty": false
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response content type is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Each comment has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Rating is within the valid range": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Images array should not be empty": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				79
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response content type is application/json": true,
+					"Each comment has the required fields": true,
+					"Rating is within the valid range": true,
+					"Images array should not be empty": false
+				}
+			]
+		},
+		{
+			"id": "b999165d-4a8c-433f-892f-f784f511e5d6",
+			"name": "Delete Comment",
+			"url": "http://localhost:8080/api/v1/comment/668b35af75883539fd4df45d",
+			"time": 85,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 404": false,
+				"Response time is less than 200ms": true,
+				"Response has the required fields": false
+			},
+			"testPassFailCounts": {
+				"Response status code is 404": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				85
+			],
+			"allTests": [
+				{
+					"Response status code is 404": false,
+					"Response time is less than 200ms": true,
+					"Response has the required fields": false
+				}
+			]
+		},
+		{
+			"id": "bb84a864-ded8-4199-9f51-959e6cfd7be6",
+			"name": "Order",
+			"url": "http://localhost:8080/api/v1/order",
+			"time": 87,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Content-Type header is application/json": true,
+				"Response has the required fields": true,
+				"Products array contains at least one element with non-empty product and positive quantity": true,
+				"Total cost is a non-negative number": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Products array contains at least one element with non-empty product and positive quantity": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Total cost is a non-negative number": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				87
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Content-Type header is application/json": true,
+					"Response has the required fields": true,
+					"Products array contains at least one element with non-empty product and positive quantity": true,
+					"Total cost is a non-negative number": true
+				}
+			]
+		},
+		{
+			"id": "b64b6dc6-fcc6-4a19-a19c-7ede0da1ff84",
+			"name": "Get Order",
+			"url": "http://localhost:8080/api/v1/order",
+			"time": 77,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response Content-Type is application/json": true,
+				"Validate the order object": false,
+				"Products array contains expected fields": true,
+				"Total cost is a non-negative number": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the order object": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Products array contains expected fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Total cost is a non-negative number": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				77
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response Content-Type is application/json": true,
+					"Validate the order object": false,
+					"Products array contains expected fields": true,
+					"Total cost is a non-negative number": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1346,
+	"collection": {
+		"requests": [
+			{
+				"id": "1afa3370-0fb9-474f-9d00-dd32ebd4cbdd",
+				"method": "POST"
+			},
+			{
+				"id": "ec543f97-bd76-4f46-a35d-65a712817b42",
+				"method": "GET"
+			},
+			{
+				"id": "a38e4233-9e9d-4ef6-b9f7-558c41834138",
+				"method": "GET"
+			},
+			{
+				"id": "8ce6833f-af7e-4ea9-83cd-9fcde7fe5452",
+				"method": "DELETE"
+			},
+			{
+				"id": "645ae58d-4b38-4802-91e8-b56e68481d1d",
+				"method": "POST"
+			},
+			{
+				"id": "f343a8a8-5a50-4a7e-a094-2fcc147a2afa",
+				"method": "GET"
+			},
+			{
+				"id": "9baa07bd-2e00-414c-a044-b88312711a95",
+				"method": "DELETE"
+			},
+			{
+				"id": "4fe7e7c9-40cf-4625-9984-6e0be0c59dfa",
+				"method": "POST"
+			},
+			{
+				"id": "a9f6256a-c627-4a95-87ef-13786507aad7",
+				"method": "GET"
+			},
+			{
+				"id": "d24ec2b1-bddc-4930-bd31-37ff4b926cba",
+				"method": "DELETE"
+			},
+			{
+				"id": "634bec1d-deb7-4409-b14f-242dc6b66943",
+				"method": "POST"
+			},
+			{
+				"id": "d64924c8-ca17-4cfa-8071-72fdaa7c2893",
+				"method": "GET"
+			},
+			{
+				"id": "b999165d-4a8c-433f-892f-f784f511e5d6",
+				"method": "DELETE"
+			},
+			{
+				"id": "bb84a864-ded8-4199-9f51-959e6cfd7be6",
+				"method": "POST"
+			},
+			{
+				"id": "b64b6dc6-fcc6-4a19-a19c-7ede0da1ff84",
+				"method": "GET"
+			}
+		]
+	}
+}

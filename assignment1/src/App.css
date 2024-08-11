@@ -1,0 +1,61 @@
+
+ul.horizontal-list {
+  list-style: none;
+}
+ul.horizontal-list li {
+  display: inline-block;
+  padding: 0 0.5rem;
+  text-decoration: none;
+  min-width: 6rem;
+  text-align: center;
+}
+
+.navbar-custom {
+  background-color: #069093; 
+  color: #fff;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link,
+.navbar-custom .navbar-text {
+  color: #fff; 
+}
+
+.navbar-custom .nav-link:hover {
+  color: #ffc107;
+}
+
+.container {
+  padding-top: 20px;
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+}
+
+.animated .card {
+  transition: transform 0.2s;
+}
+
+.animated .card:hover {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
