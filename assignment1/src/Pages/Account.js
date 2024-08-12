@@ -1,7 +1,32 @@
 import { Form, Button } from 'react-bootstrap';
 import '../App.css';
+import { useState } from 'react';
 
-export default function Account({ formData, handleInputChange, handleSubmit }) {
+export default function Account() {
+    const [formData, setFormData] = useState({
+        id: 0,
+        firstName: '',
+        email: '',
+        address: '',
+        city: '',
+        state: '',
+        zip: ''
+    });
+  
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({
+          ...formData,
+          [name]: value
+      }); 
+    };
+    
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      formData.id = "1";
+      setFormData({...formData, id: 1});
+    };
+  
     return (
         <>
             <div className="container mt-2">

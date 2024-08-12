@@ -11,6 +11,13 @@ const server = http.createServer(app);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Accept, Accept-Language, Accept-Encoding');
+    next();
+});
+
 const userRoutes = require('./routes/user');
 const productRoutes = require('./routes/product');
 const orderRoutes = require('./routes/order');
@@ -33,7 +40,7 @@ app.use('/api/v1/order', orderRoutes);
 app.use('/api/v1/comment', commentRoutes);
 app.use('/api/v1/cart', cartRoutes);
 
-// Listen Server on Specific PORT
+// Listen Server on     Specific PORT
 const PORT = 8080;
 server.listen(PORT, function () {
     console.log(`Server is running on http://localhost:${PORT}`);

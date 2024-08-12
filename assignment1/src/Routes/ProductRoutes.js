@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import ProductList from "../Component/ProductComponent/ProductList";
-import Product from "../Component/ProductComponent/Product";
+import ProductList from "../Pages/ProductList";
+import Product from "../Component/Product";
 
-function ProductRoutes({ addToCart }) {
+function ProductRoutes() {
     return (
         <>
             <Routes>
-                <Route index element={<ProductList addToCart={addToCart}/>} />
-                <Route path=":id" element={<Product addToCart={addToCart}/>} />
+                <Route index element={<ProductList />} />
+                <Route path=":id" element={<Product />} />
             </Routes>
         </>
     );

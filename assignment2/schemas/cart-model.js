@@ -7,16 +7,11 @@ const CartSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'User' 
   },
-  products: [
-    { 
-      product: 
-      { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Product' 
-      },
-      quantity: Number
-    }
-  ],
+  product: { 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Product' 
+  },
+  quantity: Number
 });
 
 const Cart = mongoose.model('Cart', CartSchema);

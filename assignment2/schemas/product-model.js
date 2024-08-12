@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
+  name: String,
   description: String,
   image: String,
-  pricing: Number,
-  shippingCost: Number
+  price: Number,
 });
 
 const Product = mongoose.model('Product', ProductSchema);

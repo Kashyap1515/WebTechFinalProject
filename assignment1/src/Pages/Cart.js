@@ -1,39 +1,67 @@
-import React, { useState } from 'react';
-import { Alert, Button, Table } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Button, Table } from 'react-bootstrap';
 import '../App.css';
+import { deleteLaptopFromCart, getCartsData } from '../Services/APIServices';
+import { useNavigate } from 'react-router-dom';
 
-function Cart({ cartItems, changeQuantity, removeFromCart }) {
+function Cart() {
+    const [carts, setCarts] = useState([]);
+    const navigate = useNavigate();
+    const [userData, setUserData] = useState({});
+
+    useEffect(() => {
+      const localUserInfo = JSON.parse(localStorage.getItem('usetInfo'));
+      if (localUserInfo) {
+        setUserData(localUserInfo);
+      }else{
+        setUserData(null);
+      }
+    }, []);
+
+    
+    useEffect(() => {
+        const getCarts = async () => {
+            const carts = await getCartsData();
+            setCarts(carts);
+        };
+        getCarts();
+    }, []);
 
     const quantityChange = (index, quantity) => {
-        changeQuantity(index, quantity);
+        carts[index].quantity = quantity;
+        setCarts([...carts]);
     };
-    const [showAlert, setShowAlert] = useState(false);
+
+    const removeFromCart = async (cartId) => {
+        await deleteLaptopFromCart(cartId);
+        const carts = await getCartsData();
+        setCarts(carts);
+    }
 
     const calculateTotal = () => {
         let total = 0;
-        cartItems.forEach(item => {
-            total += item.price * item.quantity;
+        carts.forEach(cartItem => {
+            total += cartItem.product.price * cartItem.quantity;
         });
         return total.toFixed(2);
     };
 
     const completeOrder = () => {
-        setShowAlert(true);
+        if(userData){
+            navigate('/checkout')
+        }else{
+            alert("Please login first to process checkout.")
+            navigate('/login')
+        }
     };
 
     return (
         <>
-            <div className="container mt-5">
-                <h2 className="text-center mb-4">Shopping Cart</h2>
-                {cartItems.length === 0 ? (
+            <div className="container mt-3">
+                {carts.length === 0 ? (
                     <p>Your cart is empty.</p>
                 ) : (
                     <div>
-                        {showAlert && (
-                            <Alert variant="success" onClose={() => setShowAlert(false)} dismissible>
-                                Successfully Completed Your Order
-                            </Alert>
-                        )}
                         <Table striped bordered hover>
                             <thead>
                                 <tr>
@@ -45,30 +73,29 @@ function Cart({ cartItems, changeQuantity, removeFromCart }) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {cartItems.map((item, index) => (
-                                    <tr key={item.id}>
-                                        <td>{item.name}</td>
-                                        <td>${item.price.toFixed(2)}</td>
+                                {carts.map((cartItem, index) => (
+                                    <tr key={cartItem._id}>
+                                        <td>{cartItem.product.name}</td>
+                                        <td>${cartItem.product.price.toFixed(2)}</td>
                                         <td>
                                             <input
                                                 type="number"
-                                                id={`quantity-${item.id}`}
+                                                id={`quantity-${cartItem._id}`}
                                                 className="form-control"
-                                                value={item.quantity}
+                                                value={cartItem.quantity}
                                                 onChange={(e) => quantityChange(index, parseInt(e.target.value))}
                                                 min="1"
                                             />
                                         </td>
-                                        <td>${(item.price * item.quantity).toFixed(2)}</td>
+                                        <td>${(cartItem.product.price * cartItem.quantity).toFixed(2)}</td>
                                         <td>
-                                            <Button variant="danger" onClick={() => removeFromCart(item.id)}>Remove</Button>
+                                            <Button variant="danger" onClick={() => removeFromCart(cartItem._id)}>Remove</Button>
                                         </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </Table>
                         <div className="text-end">
-                            <p>Total: ${calculateTotal()}</p>
                             <Button variant="primary" onClick={completeOrder}>Complete Order</Button>
                         </div>
                     </div>
