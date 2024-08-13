@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const UserModel = require('../schemas/user-model');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 
 // Get all users
 router.get('/', async (req, res) => {
@@ -14,12 +15,19 @@ router.get('/', async (req, res) => {
 });
 
 // Login
-router.get('/login', async (req, res) => {
-    const { username, password } = req.query;
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
     try {
-        var user = await UserModel.findOne({ username, password });
-        if (user) {
-            res.status(200).json({message: 'You have Successfully Login.', data: user});
+        const user = await UserModel.findOne({ username });
+
+        if (!user) {
+            return res.status(401).json({ message: 'Invalid username or password' });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        if (isMatch) {
+            res.status(200).json({ message: 'You have Successfully Login.', data: user });
         } else {
             res.status(401).json({ message: 'Invalid username or password' });
         }
@@ -28,25 +36,34 @@ router.get('/login', async (req, res) => {
     }
 });
 
-// Create a new user
+
 router.post('/', async (req, res) => {
     try {
-        const { email } = req.body;
-        if (!email) {
-            return res.status(400).json({ message: 'Email is required' });
+        const { email, password, username, shippingAddress, role } = req.body;
+
+        if (!email || !password || !username) {
+            return res.status(400).json({ message: 'Email, password, and username are required' });
         }
-        let user = await UserModel.findOne({ email });
+
+        let user = await UserModel.findOne({username });
         if (user) {
             return res.status(400).json({ message: 'User already exists' });
         }
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
         const newUser = new UserModel({
             _id: new mongoose.Types.ObjectId(),
-            ...req.body
+            email,
+            password: hashedPassword,
+            username,
+            shippingAddress,
+            role: role || 'user'
         });
+
         const addedUser = await newUser.save();
-        res.status(200).json(addedUser);
+        res.status(201).json(addedUser);
     } catch (err) {
-        console.log(err);
         res.status(500).json({ message: err.message });
     }
 });

@@ -3,7 +3,14 @@ const baseAPI = 'http://localhost:8080/api/v1';
 
 export const loginResponse = async (username, password) => {
   try {
-    const response = await fetch(`${baseAPI}/user/login?username=${username}&password=${password}`);
+    const response = await fetch(`${baseAPI}/user/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    });
+
     return response;
   } catch (e) {
     console.log(e);

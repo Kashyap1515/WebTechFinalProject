@@ -27,4 +27,14 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.delete("/", async function (req, res) {
+  try {
+    const order = await OrderModel.deleteMany({});
+    if (order.deletedCount === 0) return res.status(404).json({ message: 'Cart Not Found' });
+    res.status(200).json({ message: "Cart Deleted Successfully" });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 module.exports = router;
