@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   try {
     const carts = await CartModel.find().populate('product');
     res.status(200).send(carts);
-  } catch (error) {
+  } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
@@ -42,7 +42,7 @@ router.delete("/:id", async function (req, res) {
   try {
     const currCart = await CartModel.findByIdAndDelete(req.params.id);
     if (!currCart) return res.status(404).json({ message: 'Cart Not Found' });
-    res.status(200).json("Cart Deleted Successfully");
+    res.status(200).json({ message: "Cart Deleted Successfully" });
   } catch (err) {
     res.status(500).send(err);
   }
@@ -52,7 +52,7 @@ router.delete("/", async function (req, res) {
   try {
     const currCart = await CartModel.deleteMany({});
     if (currCart.deletedCount === 0) return res.status(404).json({ message: 'Cart Not Found' });
-    res.status(200).json("Cart Deleted Successfully");
+    res.status(200).json({ message: "Cart Deleted Successfully" });
   } catch (err) {
     res.status(500).send(err);
   }

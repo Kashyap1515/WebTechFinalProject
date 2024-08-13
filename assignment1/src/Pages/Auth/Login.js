@@ -32,8 +32,8 @@ export default function Login() {
             localStorage.setItem('usetInfo', JSON.stringify(loginData.data));
             navigate('/');
             window.location.reload()
-        } catch (error) {
-            console.error('Error Login:', error);
+        } catch (err) {
+            console.error('Error Login:', err);
         }
     };
 

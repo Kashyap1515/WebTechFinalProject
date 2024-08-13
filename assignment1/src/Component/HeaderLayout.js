@@ -25,6 +25,9 @@ const HeaderLayout = () => {
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav">
+            {userData &&
+              <li className="nav-item"><span className="nav-link">Welcome, {userData.username} </span> </li>
+            }
             <li className="nav-item">
               <Link className="nav-link" to="/product">Home</Link>
             </li>
@@ -50,9 +53,7 @@ const HeaderLayout = () => {
           </ul>
         </div>
       </nav>
-      {userData &&
-        <h4 className='mx-5 mt-4'>Welcome, {userData.username}</h4>
-      }
+
     </>
   );
 };

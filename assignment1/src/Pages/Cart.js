@@ -10,15 +10,15 @@ function Cart() {
     const [userData, setUserData] = useState({});
 
     useEffect(() => {
-      const localUserInfo = JSON.parse(localStorage.getItem('usetInfo'));
-      if (localUserInfo) {
-        setUserData(localUserInfo);
-      }else{
-        setUserData(null);
-      }
+        const localUserInfo = JSON.parse(localStorage.getItem('usetInfo'));
+        if (localUserInfo) {
+            setUserData(localUserInfo);
+        } else {
+            setUserData(null);
+        }
     }, []);
 
-    
+
     useEffect(() => {
         const getCarts = async () => {
             const carts = await getCartsData();
@@ -38,18 +38,10 @@ function Cart() {
         setCarts(carts);
     }
 
-    const calculateTotal = () => {
-        let total = 0;
-        carts.forEach(cartItem => {
-            total += cartItem.product.price * cartItem.quantity;
-        });
-        return total.toFixed(2);
-    };
-
     const completeOrder = () => {
-        if(userData){
+        if (userData) {
             navigate('/checkout')
-        }else{
+        } else {
             alert("Please login first to process checkout.")
             navigate('/login')
         }
@@ -57,7 +49,8 @@ function Cart() {
 
     return (
         <>
-            <div className="container mt-3">
+            <div className="container mt-4">
+                <h2>Your Cart</h2>
                 {carts.length === 0 ? (
                     <p>Your cart is empty.</p>
                 ) : (

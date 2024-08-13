@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   try {
     const comments = await CommentModel.find();
     res.status(200).send(comments);
-  } catch (error) {
+  } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });

@@ -40,7 +40,7 @@ app.use('/api/v1/order', orderRoutes);
 app.use('/api/v1/comment', commentRoutes);
 app.use('/api/v1/cart', cartRoutes);
 
-// Listen Server on     Specific PORT
+// Listen Server on Specific PORT
 const PORT = 8080;
 server.listen(PORT, function () {
     console.log(`Server is running on http://localhost:${PORT}`);

@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   try {
     const orders = await OrderModel.find();
     res.status(200).send(orders);
-  } catch (error) {
+  } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
